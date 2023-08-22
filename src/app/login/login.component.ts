@@ -16,6 +16,10 @@ export class LoginComponent {
   }
 
   ngOnInit(): void {
+    if (this.authService.isLogin()) {
+      this.router.navigate(['/posts']);
+    }
+
     this.formGroup = new FormGroup({
       email: new FormControl('', [Validators.email, Validators.required]),
       password: new FormControl('', [Validators.minLength(5), Validators.required])
