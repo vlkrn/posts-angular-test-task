@@ -1,0 +1,46 @@
+<div class="auth-form">
+  <h1>Регистрация</h1>
+  <form *ngIf="formGroup" [formGroup]="formGroup" (submit)="onSubmit()">
+    <div class="auth-fields">
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email" placeholder="example@example.com">
+        <mat-error *ngIf="formGroup.controls['email'].hasError('email') && formGroup.controls['email'].touched">
+          Неверный email адрес
+        </mat-error>
+        <mat-error *ngIf="formGroup.controls['email'].hasError('required') && formGroup.controls['email'].touched">
+          Необходимо ввести email
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Пароль</mat-label>
+        <input type="password" matInput formControlName="password">
+        <mat-error *ngIf="formGroup.controls['password'].hasError('minlength') && formGroup.controls['password'].touched">
+          Пароль слишком короткий
+        </mat-error>
+        <mat-error *ngIf="formGroup.controls['password'].hasError('required') && formGroup.controls['password'].touched">
+          Необходимо ввести пароль
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Повторите пароль</mat-label>
+        <input type="password" matInput formControlName="passwordRepeat">
+        <mat-error *ngIf="formGroup.hasError('PasswordNoMatch') && formGroup.controls['passwordRepeat'].touched">
+          Пароли не совпадают
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="auth-buttons">
+      <button type="button" mat-fab extended color="link" (click)="returnBack()">
+        < Назад
+      </button>
+      <button type="submit" mat-fab extended color="primary" [disabled]="formGroup.invalid">
+        Зарегистрироваться
+      </button>
+    </div>
+  </form>
+</div>

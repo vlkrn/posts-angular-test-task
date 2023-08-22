@@ -1,0 +1,23 @@
+.auth-form {
+  height: 100%;
+  margin: 0 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-form form{
+  width: 100%;
+}
+
+.auth-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

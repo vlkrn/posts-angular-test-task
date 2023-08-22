@@ -1,0 +1,13 @@
+<ng-container *ngIf="posts$ | async as posts; else spinner">
+  <div class="posts-list">
+    <div *ngFor="let post of posts" class="post-info" [routerLink]="['id/' + post.id]">
+      <h2>{{post.id + ". " + post.title}}</h2>
+      <span>{{post.body}}</span>
+    </div>
+  </div>
+</ng-container>
+<ng-template #spinner>
+  <div class="spinner-container">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+</ng-template>

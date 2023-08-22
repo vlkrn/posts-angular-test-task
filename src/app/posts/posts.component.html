@@ -1,0 +1,8 @@
+<header>
+  <span *ngIf="email">{{email}}</span>
+  <span *ngIf="!email">Авторизованный пользователь</span>
+  <span> / </span>
+  <span><a class="logout-link" (click)="logout()">Выйти из аккаунта</a></span>
+</header>
+<router-outlet></router-outlet>
+
